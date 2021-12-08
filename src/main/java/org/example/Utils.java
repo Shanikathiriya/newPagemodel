@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Utils extends BrowserManager
+public class Utils extends BrowserManager // create method inherit browser manager
 {
     public static void clickOnElement(By by)// create click method .this method will execute when fire click event
     {

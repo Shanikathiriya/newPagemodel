@@ -5,9 +5,9 @@ import org.testng.Assert;
 
 public class NewReleaseCommentResult extends Utils
 {
-    public void verifyUserHAsSuccessFullyCommentAdded()
+    public void verifyUserHAsSuccessFullyCommentAdded() //create method to check user ahs successfully comment added or not
     {
-        //print message successfully added comment
+
         String actualS2= getTextFromElement(By.xpath("//div[@class='notifications']/div"));
         // System.out.println(actualS2);
         String expectedS2="News comment is successfully added.";

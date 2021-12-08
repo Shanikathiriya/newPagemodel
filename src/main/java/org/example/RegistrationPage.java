@@ -3,7 +3,7 @@ package org.example;
 import org.openqa.selenium.By;
 
 
-public class RegistrationPage extends Utils
+public class RegistrationPage extends Utils //create class and inherit utils
 {
 
      By firstName=By.xpath("//input[@id='FirstName']");
@@ -27,7 +27,7 @@ public class RegistrationPage extends Utils
 
 
 
-   public void registrationDetails()
+   public void registrationDetails() // create method for register a details
    {
 
      typeText(firstName,"krishna");
