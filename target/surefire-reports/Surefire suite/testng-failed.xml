@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" verbose="0" name="Failed suite [Surefire suite]">
+  <test thread-count="1" verbose="0" name="Surefire test(failed)">
+    <classes>
+      <class name="org.example.TestSuit">
+        <methods>
+          <include name="verifyUserShouldBeAbleToNewsCommentSuccessfullyAdd"/>
+          <include name="verifyUserVisibleToNavigateDesktopPage"/>
+          <include name="closeBrowser"/>
+          <include name="verifyUserShouldBeAbleToRegisterSuccessfully"/>
+          <include name="setUpBrowser"/>
+          <include name="verifyRegisterUserShouldBeAbleToReferProduct"/>
+        </methods>
+      </class> <!-- org.example.TestSuit -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->
