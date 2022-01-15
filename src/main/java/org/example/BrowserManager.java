@@ -2,6 +2,7 @@ package org.example;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -15,12 +16,12 @@ public class BrowserManager extends BasePage // create browser manager class inh
     public static final String AUTOMATE_USERNAME = "krishnasanghani_hnm20u";
     public static final String AUTOMATE_ACCESS_KEY = "6uVE9ge75FHZMKKPyyPp";
     public static final String BrowseStackURL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
-    String browser="chrome";
+  // String browser="edge";
     LoadProp loadProp=new LoadProp();
-    // String browser=System.getProperty("browser");
+     String browser=System.getProperty("browser");
 
     boolean cloud=false;
-   // boolean cloud = Boolean.parseBoolean(System.getProperty("cloud"));
+  // boolean cloud = Boolean.parseBoolean(System.getProperty("cloud"));
 
     public void openBrowser()  // create method for open browser
     {
@@ -74,10 +75,16 @@ public class BrowserManager extends BasePage // create browser manager class inh
                 driver = new ChromeDriver();
 
             } else if (browser.equalsIgnoreCase("edge")) {
-                System.setProperty("webdriver.chrome.driver", "src/test/java/Drivers/msedgedriver.exe");
+                System.setProperty("webdriver.edge.driver", "src/test/java/Drivers/msedgedriver.exe");
                 driver = new EdgeDriver();
 
-            } else
+            }
+            else if (browser.equalsIgnoreCase("firefox")) {
+                System.setProperty("webdriver.gecko.driver", "src/test/java/Drivers/geckodriver.exe");
+                driver = new FirefoxDriver();
+
+            }
+            else
             {
                 System.out.println("your browser name is wrong");
             }
