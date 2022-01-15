@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 public class RegistrationPage extends Utils //create class and inherit utils
 {
 
+    LoadProp loadProp=new LoadProp();
      By firstName=By.xpath("//input[@id='FirstName']");
 
      By lastName=By.xpath("//input[@name='LastName']");
@@ -14,8 +15,7 @@ public class RegistrationPage extends Utils //create class and inherit utils
      By month=By.name("DateOfBirthMonth");
      By year=By.name("DateOfBirthYear");
     // String emailText="krishnasanghani0+" +currentTimeStamp()+ "@gmail.com";
-     By email1=By.name("Email");
-
+    By email1=By.name("Email");
 
 
      By newsLetter=By.id("Newsletter");
@@ -30,16 +30,18 @@ public class RegistrationPage extends Utils //create class and inherit utils
    public void registrationDetails() // create method for register a details
    {
 
-     typeText(firstName,"krishna");
-     typeText(lastName,"sanghani");
-     selectDay(day,"15");
-     selectMonth(month,"10");
-     selectYear(year,5);
+     typeText(firstName,loadProp.getProperty("firstName"));
+     typeText(lastName,loadProp.getProperty("LastName"));
 
-     typeText(email1,"krishnasanghani0+" +currentTimeStamp()+ "@gmail.com");
-     clickOnElement(newsLetter);
-     typeText(passWord,"Krishna1234567");
-     typeText(confirmPassword,"Krishna1234567");
+     selectByText(day,loadProp.getProperty("Dob"));
+     selectByValue(month,loadProp.getProperty("MonthOfBirth"));
+     selectByIndex(year,loadProp.getProperty("YearOfBirth"));
+
+       typeText(email1,loadProp.getProperty("email1")+currentTimeStamp()+loadProp.getProperty("email2"));
+
+       clickOnElement(newsLetter);
+     typeText(passWord,loadProp.getProperty("Password"));
+     typeText(confirmPassword,loadProp.getProperty("ConfirmPassword"));
      waitForClickabInSEle(registerButton,20);
      clickOnElement(registerButton);
 

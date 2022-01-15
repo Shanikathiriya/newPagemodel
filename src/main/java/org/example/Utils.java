@@ -1,15 +1,36 @@
 package org.example;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Utils extends BrowserManager // create method inherit browser manager
 {
+    public static void captureScreenshot(String  fileName)
+    {
+        TakesScreenshot scrShot=((TakesScreenshot) driver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File destFile=new File("src/test/java/Screenshots/"+fileName+"+"+currentTimeStamp()+".png");
+
+                try
+                {
+                    FileUtils.copyFile(SrcFile,destFile);
+
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+    }
     public static void clickOnElement(By by)// create click method .this method will execute when fire click event
     {
         driver.findElement(by).click();
@@ -42,20 +63,20 @@ public class Utils extends BrowserManager // create method inherit browser manag
 
     }
 
-    public void selectDay(By by,String text)
+    public void selectByText(By by,String text) //select by text method to select from drop down
     {
         Select select_d=new  Select( driver.findElement(by));
         select_d.selectByVisibleText(text);
     }
-    public void selectMonth(By by,String m)
+    public void selectByValue(By by,String m) // select by value from drop down
     {
         Select select_m=new  Select( driver.findElement(by));
         select_m.selectByValue(m);
     }
-    public void selectYear(By by,int y)
+    public void selectByIndex(By by, String y) // select by index from drop down
     {
         Select select_y=new  Select( driver.findElement(by));
-        select_y.selectByIndex(y);
+        select_y.selectByIndex(Integer.parseInt(y));
     }
 
 }

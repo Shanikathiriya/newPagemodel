@@ -57,10 +57,10 @@ public class TestSuit extends BaseTest
     {
         homePage.clickOnNewsDetails();
         newReleaseDetails.newsCommentAdd();
-
         newReleaseCommentResult.verifyUserHAsSuccessFullyCommentAdded();
 
     }
+
 
 
 

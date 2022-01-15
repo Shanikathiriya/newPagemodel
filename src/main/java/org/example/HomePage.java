@@ -5,10 +5,9 @@ import org.openqa.selenium.By;
 public class HomePage extends Utils //create class and inherit utils class
 {
 
-        By registerButton= By.xpath("//a[@href='/register?returnUrl=%2F']");
-        By newReleaseCommentButton= By.xpath("//div[@class='buttons']/a[@href='/nopcommerce-new-release']");
-        By computerMenu= By.xpath("//a[@href='/computers']");
-
+    By registerButton= By.xpath("//a[@href='/register?returnUrl=%2F']");
+    By newReleaseCommentButton= By.xpath("//div[@class='buttons']/a[@href='/nopcommerce-new-release']");
+    By computerMenu= By.xpath("//a[@href='/computers']");
         public void clickOnRegisterButton() //create method for click on register button
         {
 
